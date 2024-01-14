@@ -1,0 +1,247 @@
+/* Reset some default styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    background-color: #20232f;
+    background-size: cover;
+    background-position: center;
+}
+
+
+header {
+  position: absolute;
+  top: 20px;
+  left: auto;
+  height: 12%;
+  width: 80%;
+  padding: 30px 20px;
+  border-radius: 100px;
+  background-color: #ffffff7f;
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;    
+}
+
+.logo {
+  background-image: url('/login-register/img/Dash1.png');
+  background-size: cover;
+  background-position: center;
+  font-size: 2em;
+  color: #000000;
+  user-select: none;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.Dash {
+  position: fixed;
+  padding: 5px 70px;
+  font-size: 2em;
+  color: #162938;
+  cursor: pointer;
+
+}
+
+
+.navigation a {
+  position: relative;
+  font-size: 1.2em;
+  color: #000000;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 40px;
+}
+
+.navigation a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 3px;
+  background: #02ecff;
+  border-radius: 5px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .5s;
+}
+
+.navigation a:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+
+} 
+
+.navigation .btnLogin-popup {
+  width: 130px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #000000;
+  font-weight: 500;
+  margin-left: 40px;
+  transition: .5s;
+}
+
+.navigation .btnLogin-popup:hover {
+  background: #02ecff;
+  color: #162938;
+}
+
+
+.modal {
+  display: none;
+  position: absolute;
+  top: 150px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #20232f ;
+}
+
+.modal-content {
+  background-color: #fff;
+  width: 70%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.modal-header {
+  background-color: #162938;
+  color: white;
+  padding: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* New styles for steps */
+.modal-content p {
+  margin-bottom: 14px; /* Add space between steps */
+  display: flex; /* Flex container */
+  align-items: flex-start; /* Align content at the start */
+}
+
+.modal-content p::before {
+  content: "\25CF"; /* Larger bullet point (Unicode character) */
+  display: inline-block;
+  font-size: 1.1em; /* Adjust bullet size */
+  margin-right: 0.5em; /* Margin between bullet and text */
+  margin-left: 0.7em;
+  color: #162938; /* Color for the bullet */
+  line-height: 0.9; /* Set line height to avoid additional spacing */
+  align-self: flex-start; /* Align bullet with Step X */
+}
+
+/* Style only the "Step X" text */
+.modal-content p span.step {
+  color: #162938; /* Color for "Step X" text */
+  font-weight: bold;
+  margin-right: 0.5em; /* Margin between bullet and text */
+}
+
+/* Style only the following text after "Step X" */
+.modal-content p[data-content]::after {
+  content: attr(data-content); /* Use the data-content attribute for text */
+  color: black; /* Color for the following text */
+  flex: 1; /* Take remaining space */
+  text-align: justify; /* Justify the text */
+}
+
+/* Style for text container */
+.text-container,
+.additional-text-container {
+  margin-left: 2em; /* Adjust margin for text container */
+  background-color: #e6f0ff; /* Blue background color */
+  padding: 10px; /* Padding for text container */
+  border-radius: 5px; /* Rounded corners */
+  height: 260px; /* Fixed height for containers */
+  /* Add scrollbar if content exceeds height */
+  margin-top: 5px;
+}
+
+/* Remove bullets from text containers */
+.text-container p,
+.additional-text-container p {
+  margin: 0; /* Reset default margin */
+  margin-left: 2.5em;
+  padding: 5px 0; /* Add padding */
+  color: black;
+}
+
+/* Add custom markers for text containers */
+.text-container p:before,
+.additional-text-container p:before {
+  content: none; /* Use bullet point */
+}
+
+/* Style bold text within text containers */
+.text-container strong,
+.additional-text-container strong {
+  color: #162938; /* Set color to blue */
+}
+
+ /* Scrollbar style for Chrome, Safari, and Opera */
+ ::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Scrollbar style for Internet Explorer and Edge */
+body {
+  scrollbar-face-color: #888;
+  scrollbar-track-color: #f1f1f1;
+}
+
+body:hover {
+  scrollbar-face-color: #555;
+}
